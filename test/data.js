@@ -1,64 +1,64 @@
-let customers = [
-    {
-      id: 1,
-      name: "Leatha Ullrich"
-    },
-    {
-      id: 2,
-      name: "Rocio Schuster"
-    },
-    {
-      id: 3,
-      name: "Kelvin Schiller"
-    }
-  ];
-  
-  let bookingSampleData = [
-    {
-      id: "5fwrgu4i7k55hl6t8",
-      userID: 1,
-      date: "2022/02/05",
-      roomNumber: 12
-    },
-    {
-      id: "5fwrgu4i7k55hl6uy",
-      userID: 2,
-      date: "2022/01/24",
-      roomNumber: 19
-    },
-    {
-      id: "5fwrgu4i7k55hl6vw",
-      userID: 2,
-      date: "2022/02/11",
-      roomNumber: 9
-    }
-  ];
-  
-  let roomSampleData = [
-    {
-      number: 12,
-      roomType: "single room",
-      bidet: false,
-      bedSize: "twin",
-      numBeds: 2,
-      costPerNight: 172.09
-    },
-    {
-      number: 19,
-      roomType: "single room",
-      bidet: false,
-      bedSize: "queen",
-      numBeds: 1,
-      costPerNight: 374.67
-    },
-    {
-      number: 9,
-      roomType: "single room",
-      bidet: true,
-      bedSize: "queen",
-      numBeds: 1,
-      costPerNight: 200.39
-    }
-  ];
-  
-  export { customers, roomSampleData, bookingSampleData };
+let customerSampleData = [
+  {
+    id: 1,
+    name: "Leatha Ullrich"
+  },
+  {
+    id: 2,
+    name: "Rocio Schuster"
+  },
+  {
+    id: 3,
+    name: "Kelvin Schiller"
+  }
+];
+
+let bookingSampleData = [
+  {
+    id: "5fwrgu4i7k55hl6t8",
+    userID: 1,
+    date: "2022/02/05",
+    roomNumber: 12
+  },
+  {
+    id: "5fwrgu4i7k55hl6uf",
+    userID: 2,
+    date: "2023/01/09",
+    roomNumber: 18
+  },
+  {
+    id: "5fwrgu4i7k55hl6v3",
+    userID: 3,
+    date: "2022/02/07",
+    roomNumber: 23
+  }
+];
+
+let roomSampleData = [
+  {
+    number: 12,
+    roomType: "single room",
+    bidet: false,
+    bedSize: "twin",
+    numBeds: 2,
+    costPerNight: 172.09
+  },
+  {
+    number: 18,
+    roomType: "junior suite",
+    bidet: false,
+    bedSize: "king",
+    numBeds: 2,
+    costPerNight: 496.41
+  },
+  {
+    number: 23,
+    roomType: "residential suite",
+    bidet: false,
+    bedSize: "queen",
+    numBeds: 2,
+    costPerNight: 176.36
+  }
+];
+
+export { customerSampleData, roomSampleData, bookingSampleData };
