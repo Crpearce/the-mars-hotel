@@ -1,24 +1,37 @@
-import { fetchData } from './apiCalls';
-import Booking from './classes/booking';
-import './css/styles.css';
-import './images/dead.png';
+import "./css/styles.css";
+import { fetchData } from "./apiCalls";
+import Customer from "./classes/Customer";
+import "./images/dead.png";
 
-// global variables
-let bookingData
-let roomData 
+// query selectors //
+
+// global variables //
+let bookingData;
+let roomData;
 let customerData;
 
-
-function getApiData () {
-Promise.all([fetchData('customers'), fetchData('rooms'), fetchData('bookings')])
-.then(([customersData, roomsData, bookingsData]) => {
-  bookingData = bookingsData;
-  roomData = roomsData;
-  customerData = customersData;
-  console.log(bookingData, roomData, customerData)
+// functions //
+function getData() {
+  Promise.all([
+    fetchData("customers"),
+    fetchData("rooms"),
+    fetchData("bookings"),
+  ]).then(([customersData, roomsData, bookingsData]) => {
+    bookingData = bookingsData;
+    roomData = roomsData;
+    customerData = customersData;
+    console.log(bookingData, roomData, customerData);
   });
 };
 
-window.onload = (event) => {
-  getApiData();
-};
+  window.onload = (event) => {
+  getData();
+  };
+
+  function show(e) {
+    e.classList.remove("hidden");
+  };
+
+  function hide(e) {
+    e.classList.add("hidden");
+  };
