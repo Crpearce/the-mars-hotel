@@ -54,7 +54,7 @@ let roomSampleData = [
   {
     number: 19,
     roomType: "single room",
-    bidet: false,
+    bidet: true,
     bedSize: "queen",
     numBeds: 1,
     costPerNight: 374.67
