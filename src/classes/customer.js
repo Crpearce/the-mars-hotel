@@ -1,28 +1,52 @@
 class Customer {
-    constructor (customerData) {
-        this.id = customerData.id;
-        this.name = customerData.name;
-        this.allRooms = [];
-        this.bookedRooms = [];
-        this.totalSpent = 0;
-    };
+  constructor(customerData) {
+    this.id = customerData.id;
+    this.name = customerData.name;
+    this.customerRooms = [];
+    this.bookedRooms = [];
+    this.totalRoomCost = 0;
+  };
 
-    // create a method so that a user can view any bookings they
-    // have made in the past and in the future
-    findCustomerBookings (bookingData) {
-        bookingData.forEach(booking => {
-            if(this.id === booking.userID) {
-            this.bookedRooms.push(booking)
-            };
+  findCustomerBookings(bookingData) {
+    bookingData.forEach((booking) => {
+      if (this.id === booking.userID) {
+        this.bookedRooms.push(booking);
+      };
     });
+  };
+
+  findCustomerTotalSpent(roomData) {
+    this.totalRoomCost = this.bookedRooms.reduce((acc, bookedRoom) => {
+      roomData.forEach((room) => {
+        if (bookedRoom.roomNumber === room.number) {
+          acc += room.costPerNight;
+        }
+      });
+      return acc;
+    }, 0);
+    return this.totalRoomCost;
+  };
+
+  findCustomerRooms(roomData) {
+    const findRooms = this.bookedRooms.reduce((acc, bookedRoom) => {
+      roomData.forEach((room) => {
+        if (bookedRoom.roomNumber === room.number) {
+          let object = {
+            number: room.number,
+            roomType: room.roomType,
+            bidet: room.roomType,
+            bedSize: room.bedSize,
+            numBeds: room.numBeds,
+            costPerNight: room.costPerNight,
+          };
+          acc.push(object);
+        }
+      });
+      return acc;
+    }, []);
+    this.customerRooms = findRooms;
+    return findRooms
+  };
 };
-    //create a method so that a user can see the total amount they
-    //have spent on rooms
-    // iterate through this.booked rooms
-    // check each booking room number
-    // reduce and a forEach
-    checkCustomerTotalSpent(roomData) {
-}
-}
 
 export default Customer;

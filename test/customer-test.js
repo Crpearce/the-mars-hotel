@@ -3,7 +3,6 @@ const expect = chai.expect;
 import Customer from '../src/classes/Customer';
 import { customerSampleData, roomSampleData, bookingSampleData } from './data.js';
 
-
 describe('Customer', () => {
     let customer1;
     let customer2;
@@ -17,7 +16,8 @@ describe('Customer', () => {
         customer1 = new Customer(customersData[0]);
         customer2 = new Customer(customersData[1]);
         customer3 = new Customer(customersData[2]);
-        bookings = bookingSampleData
+        bookings = bookingSampleData;
+        rooms = roomSampleData;
     });
 
   it('should be a function', () => {
@@ -43,8 +43,8 @@ describe('Customer', () => {
   });
 
   it('should be able to return a customers past and future bookings', () => {
-    customer1.findCustomerBookings(bookings)
-    customer3.findCustomerBookings(bookings)
+    customer1.findCustomerBookings(bookings);
+    customer2.findCustomerBookings(bookings);
     expect(customer1.bookedRooms).to.deep.equal([
       {
         id: "5fwrgu4i7k55hl6t8",
@@ -53,14 +53,67 @@ describe('Customer', () => {
         roomNumber: 12
       }
   ]);
-    expect(customer3.bookedRooms).to.deep.equal([ 
+    expect(customer2.bookedRooms).to.deep.equal([ 
       {
-        id: "5fwrgu4i7k55hl6v3",
-        userID: 3,
-        date: "2022/02/07",
-        roomNumber: 23
+        id: "5fwrgu4i7k55hl6uf",
+        userID: 2,
+        date: "2023/01/09",
+        roomNumber: 18
+      },
+      {
+        id: "5fwrgu4i7k55hl6uy",
+        userID: 2,
+        date: "2023/01/24",
+        roomNumber: 19
       }
   ]);
+  });
+
+  it('should be able to check how much a customer has spent on room bookings', () => {
+    customer1.findCustomerBookings(bookings);
+    customer1.findCustomerTotalSpent(rooms);
+    customer2.findCustomerBookings(bookings);
+    customer2.findCustomerTotalSpent(rooms);
+    customer3.findCustomerBookings(bookings);
+    customer3.findCustomerTotalSpent(rooms);
+    expect(customer1.totalRoomCost).to.equal(172.09);
+    expect(customer2.totalRoomCost).to.equal(871.08);
+    expect(customer3.totalRoomCost).to.equal(0);
+  });
+
+  it('should be able to tell which rooms a customer has booked', () => {
+    customer1.findCustomerBookings(bookings);
+    customer1.findCustomerRooms(rooms);
+    customer2.findCustomerBookings(bookings);
+    customer2.findCustomerRooms(rooms);
+    expect(customer1.customerRooms).to.deep.equal([
+      {
+        number: 12,
+        roomType: 'single room',
+        bidet: 'single room',
+        bedSize: 'twin',
+        numBeds: 2,
+        costPerNight: 172.09
+      }
+    ]);
+    expect(customer2.customerRooms).to.deep.equal([
+      {
+        number: 18,
+        roomType: 'junior suite',
+        bidet: 'junior suite',
+        bedSize: 'king',
+        numBeds: 2,
+        costPerNight: 496.41
+      },
+      {
+        number: 19,
+        roomType: 'single room',
+        bidet: 'single room',
+        bedSize: 'queen',
+        numBeds: 1,
+        costPerNight: 374.67
+      }
+    ]);
   });
 
 });

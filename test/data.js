@@ -27,10 +27,10 @@ let bookingSampleData = [
     roomNumber: 18
   },
   {
-    id: "5fwrgu4i7k55hl6v3",
-    userID: 3,
-    date: "2022/02/07",
-    roomNumber: 23
+    id: "5fwrgu4i7k55hl6uy",
+    userID: 2,
+    date: "2023/01/24",
+    roomNumber: 19
   }
 ];
 
@@ -52,13 +52,13 @@ let roomSampleData = [
     costPerNight: 496.41
   },
   {
-    number: 23,
-    roomType: "residential suite",
+    number: 19,
+    roomType: "single room",
     bidet: false,
     bedSize: "queen",
-    numBeds: 2,
-    costPerNight: 176.36
-  }
+    numBeds: 1,
+    costPerNight: 374.67
+    }
 ];
 
 export { customerSampleData, roomSampleData, bookingSampleData };
