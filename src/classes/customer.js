@@ -2,8 +2,9 @@ class Customer {
   constructor(customerData) {
     this.id = customerData.id;
     this.name = customerData.name;
-    this.customerRooms = [];
     this.bookedRooms = [];
+    this.allBookedRooms = [];
+    this.sortedBookings = [];
     this.totalRoomCost = 0;
   };
 
@@ -11,7 +12,7 @@ class Customer {
     bookingData.forEach((booking) => {
       if (this.id === booking.userID) {
         this.bookedRooms.push(booking);
-      };
+      }
     });
   };
 
@@ -44,9 +45,14 @@ class Customer {
       });
       return acc;
     }, []);
-    this.customerRooms = findRooms;
-    return findRooms
+    this.allBookedRooms = findRooms;
+    return findRooms;
   };
+
+  sortCustomerBookings() {
+    // let bookedDates = this.
+
+  }
 };
 
 export default Customer;
