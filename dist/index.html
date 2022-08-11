@@ -8,24 +8,58 @@
 </head>
 <body>
   <nav class="navigation" id="navigationBar">
-      <button class="user-options" aria-label="home page button" id="homePageBtn">Home</button>
-      <button class="user-options2" aria-label="home page button" id="homePageBtn">Test 1</button>
-      <button class="user-options3" aria-label="home page button" id="homePageBtn">Test 2</button>
-  </nav>
+      <button class="home-button" aria-label="home page button" id="homePageBtn">Home</button>
+      <button class="past-bookings-button" aria-label="past bookings button" id="pastBookingsButton">Past Bookings</button>
+      <button class="logout-button" aria-label="logout button" id="logoutButton">Logout</button>
+    </nav>
   <aside class="user-bookings-container">
-    <h2 class="user-bookings-list" id="userBookingsList">Booking History</h2>
-    <h2 class="user-total-spent" id="userTotalSpent">Customer Total Spent</h2>
+    <h2 class="user-bookings-list" id="userBookingsList">Upcoming Visits</h2>
+    <p id="errorHandlingNoBookings">No upcoming bookings!</p>
   </aside>
   <main class="main-display" id="mainDisplay">
     <section class="main-view" id="mainView">
-      <h3>MAIN VIEW CONTAINER</h3>
+      <h1 class="main-greeting">MAIN VIEW CONTAINER</h1>
+      <h2 class="user-total-spent" id="userTotalSpent">Customer Total Spent</h2>
     </section>
-    <section class="booking-date-view" id="bookingDateView">
-      <h3>BOOKING DATE CONTAINER?</h3>
+    <section class="customer-login" id="customerLogin">
+      <form accept-charset="">
+        <div class="login-container">
+          <h2 class="login-greeting">Welcome to the Mars Hotel!</h2>
+          <label class="username-text" aria-label="enter username" for="username"><b>Username</b></label>
+          <input class="username" id="username" type="text" placeholder="Username goes here" name="username" required>
+          <label class="password-text"aria-label="enter password" for="psw"><b>Password</b></label>
+          <input class="password" id="password" type="password" placeholder="Password goes here" name="password" required>
+          <button class="login-btn" id="loginBtn">Login</button>
+          <p id="loginErrorMessage"></p>
+        </div>
+      </form>
+    </section>
+    <section class="booking-header-container" id="bookingHeaderContainer">
+      <label for="booking-date">Arrival date: </label>
+      <input aria-label="Enter a date for desired reservation" class="date-input" min="%_today-1%" max="2023-12-31" type="date" required>
+      <div aria-label="filter by room type" class="room-filter">
+        <label for="room-type-slection">select room type:</label>
+        <select id="select1" name="room-type-selection" class="room-type-selection" required>
+          <option class="single-room" value="single room">single room</option>
+          <option class="junior-suite" value="junior suite">junior suite</option>
+          <option class="residential-suite" value="residential suite">residential suite</option>
+          <option class="suite" value="suite">suite</option>
+        </select>
+        <button aria-label="show available rooms button"class="show-rooms-btn">Show available rooms</button>
+        <button aria-label="clear all filters button" class="clear-entries-btn">Clear Entries</button>
+      </section>
+      <section class="available-rooms-container" id="availableRoomsContainer">
+        <h3 class="available-rooms-list" id="availableRoomsList"></h3>
+      </section>
+      <section class="past-bookings-container" id="pastBookingsContainer">
+        <h3 class="past-bookings-list" id="pastBookingsList"></h3>
+      </section>
+      <section class="potential-room-booking-container" id="potentialBookingContainer">
+        <h3 class="room-to-book" id="roomToBook"></h3>
+      </section>
     </section>
   </main>
 </body>
-  <!-- <img src="./images/dead.png" alt="mars hotel logo"> -->
-  <script src="bundle.js"></script>
+<script src="bundle.js"></script>
 </body>
 </html>
